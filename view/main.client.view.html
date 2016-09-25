@@ -1,7 +1,7 @@
 <div data-ng-controller="conductor">
 	<h1>THis is the main view</h1>
 	<p>{{title}}</p>
-	<div class="example-box">
+	<div class="example-box" data-ng-init="initRotation()">
 		<div data-ng-show="scene[0]" class="window a-background">
 			<div class="window-pane text-center">
 				<span class="on-view">O</span>
