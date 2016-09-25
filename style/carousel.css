@@ -1,0 +1,31 @@
+.example-box {
+	border:1px solid black;
+	width:750px;
+	height:430px;
+	margin-left:50px;
+}
+.window-pane {
+	background-color:rgb(214, 194, 194);
+	opacity:0.5;
+}
+.window-pane > span {
+	cursor:pointer;
+	color:black;
+}
+.window {
+	width:100%; 
+	height:100%;
+}
+.a-background {
+	background:url(/carousel/images/teacher.jpg);
+}
+.b-background {
+	background:url(/carousel/images/students.png);
+}
+.c-background {
+	background:url(/carousel/images/participating.jpg);
+}
+.on-view {
+	border:1px solid black;
+}
+
