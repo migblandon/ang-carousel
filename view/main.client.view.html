@@ -1,26 +1,8 @@
-<div data-ng-controller="conductor">
-	<h1>THis is the main view</h1>
-	<p>{{title}}</p>
-	<div class="example-box" data-ng-init="initRotation()">
-		<div data-ng-show="scene[0]" class="window a-background">
-			<div class="window-pane text-center">
-				<span class="on-view">O</span>
-				<span data-ng-click="showScene(1)">O</span>
-				<span data-ng-click="showScene(2)">O</span>
-			</div>
-		</div>
-		<div data-ng-show="scene[1]" class="window b-background">
-			<div class="window-pane text-center">
-				<span data-ng-click="showScene(0)">O</span>
-				<span class="on-view">O</span>
-				<span data-ng-click="showScene(2)">O</span>
-			</div>
-		</div>
-		<div data-ng-show="scene[2]" class="window c-background">
-			<div class="window-pane text-center">
-				<span data-ng-click="showScene(0)">O</span>
-				<span data-ng-click="showScene(1)">O</span>
-				<span class="on-view">O</span>
+<div class="example-box">
+	<div data-ng-controller="conductor" class="image-adjust" data-ng-init="initRotation()">
+		<div data-ng-repeat="item in images" style="background:url({{item.path}})" data-ng-show="scene[$index]" class="window">
+			<div class="window-pane text-center" data-ng-init="place = $index">
+				<span data-ng-repeat="spot in images" data-ng-click="showScene($index)" data-ng-class="ifOnView(place, $index)">O</span>
 			</div>
 		</div>
 	</div>

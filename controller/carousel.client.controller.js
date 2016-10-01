@@ -1,7 +1,12 @@
 angular.module('carousel').controller('conductor', ['$scope', '$timeout',
 	function($scope, $timeout){
-		$scope.title = 'Hello world';
-		$scope.scene = [true, false, false];
+		$scope.images = [
+			{path: '/carousel/images/teacher.jpg'},
+			{path: '/carousel/images/students.png'},
+			{path: '/carousel/images/participating.jpg'}
+		
+		];
+		$scope.scene = [];
 		$scope.showScene = function(index){
 			$timeout.cancel(timePromise);
 			allFalse();
@@ -9,7 +14,23 @@ angular.module('carousel').controller('conductor', ['$scope', '$timeout',
 			startFromRotation(index);
 		};
 		$scope.initRotation = function(){
+			startView();
 			startRotation();
+		};
+		$scope.ifOnView = function(place, index){
+			if (place === index){
+				return 'on-view';
+			}
+		};
+		/**
+		 * internal func: startView
+		 * shows the first image and hides the rest
+		 */
+		var startView = function(){
+			$scope.scene[0] = true;
+			for (var i = 1 ; i < $scope.images.length ; i++){
+				$scope.scene[i] = false;
+			}
 		};
 		var timePromise;
 		var rotate = function(index){
