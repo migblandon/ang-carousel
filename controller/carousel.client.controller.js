@@ -7,7 +7,6 @@ angular.module('carousel').controller('conductor', ['$scope', '$timeout',
 			{path: '/carousel/images/Technique-for-Faster-Web-Development.jpg'},
 			{path: '/carousel/images/webdevelopment.jpg'},
 			{path: '/carousel/images/web-development-cropped.jpg'}
-		
 		];
 		/**
 		 * local var: startingDelay and followUpDelay
@@ -28,7 +27,7 @@ angular.module('carousel').controller('conductor', ['$scope', '$timeout',
 		var timePromise;
 		/**
 		 * scope func: showScene
-		 * cancels any future change when carousel open and starts new again from image picked
+		 * cancels any future promises to keep sliding through images.
 		 * param: index is the image picked by the user
 		 */
 		$scope.showScene = function(index){
@@ -39,7 +38,7 @@ angular.module('carousel').controller('conductor', ['$scope', '$timeout',
 		};
 		/**
 		 * scope func: initRotation
-		 * Initialize the view and start rotation
+		 * Initialize the view and starts rotation
 		 */
 		$scope.initRotation = function(){
 			startView();
@@ -47,9 +46,10 @@ angular.module('carousel').controller('conductor', ['$scope', '$timeout',
 		};
 		/**
 		 * scope func: ifOnView
-		 * Determines which image is the one on on the current view
+		 * Determines which image is currently on the view
 		 * param: place is the index of the image
 		 * param: index is the image on view
+		 * return: returns a class name to be added to the element on view
 		 */
 		$scope.ifOnView = function(place, index){
 			if (place === index){
@@ -68,8 +68,7 @@ angular.module('carousel').controller('conductor', ['$scope', '$timeout',
 		};
 		/**
 		 * local func: rotate
-		 * determines where the next image is located and saves a promise with 
-		 * 	a determine amount of time to change image again.
+		 * Starts a promise to show the next image accordently.
 		 * param: index is the current location of the image
 		 */
 		var rotate = function(index){
@@ -89,7 +88,7 @@ angular.module('carousel').controller('conductor', ['$scope', '$timeout',
 		};
 		/**
 		 * local func: allFalse
-		 * Makes all the images hide
+		 * Hides all the images
 		 */
 		var allFalse = function(){
 			for (var i = 0 ; i < $scope.images.length ; i++){
@@ -98,7 +97,7 @@ angular.module('carousel').controller('conductor', ['$scope', '$timeout',
 		};
 		/**
 		 * local func: startFromRotation
-		 * Starts rotation again when the user clicks on an image
+		 * Re-starts rotation as the user clicks on another image
 		 * param: index is the image clicked
 		 */
 		var startFromRotation = function(index){

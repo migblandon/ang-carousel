@@ -1,9 +1,7 @@
-<div class="example-box">
-	<div data-ng-controller="conductor" class="image-adjust" data-ng-init="initRotation()">
-		<div data-ng-repeat="item in images" style="background:url({{item.path}})" data-ng-show="scene[$index]" class="window">
-			<div class="window-pane text-center" data-ng-init="place = $index">
-				<span data-ng-repeat="spot in images" data-ng-click="showScene($index)" data-ng-class="ifOnView(place, $index)">O</span>
-			</div>
+<div data-ng-controller="conductor" class="image-adjust" data-ng-init="initRotation()">
+	<div data-ng-repeat="item in images" style="background:url({{item.path}})" data-ng-show="scene[$index]" class="window">
+		<div class="window-pane text-center" data-ng-init="place = $index">
+			<span data-ng-repeat="spot in images" data-ng-click="showScene($index)" data-ng-class="ifOnView(place, $index)">O</span>
 		</div>
 	</div>
 </div>
